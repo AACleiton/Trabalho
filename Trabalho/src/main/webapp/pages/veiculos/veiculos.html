@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="Prova">
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="../angular.min.js"></script>
+        <script src="veiculo.js"></script>
+    </head>
+    <body>
+        <div ng-controller="VeiculoController" ng-init="iniciar()">
+            
+            <div>
+                <br>
+                ID
+                <input type="text" ng-disabled="!isNovo" ng-model="veiculo.id">
+                <br>
+                Placa
+                <input type="text" ng-model="veiculo.placa">
+                <br>
+                Ano Fabricação
+                <input type="text" ng-model="veiculo.anoFabricacao">
+                <br>
+                Ano Modelo
+                <input type="text" ng-model="veiculo.anoModelo">
+                <br>
+                <button ng-click="salvar()">Salvar</button>
+            </div>
+            
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Placa</th>
+                        <th>Ano</th>
+                        <th>Modelo</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="v in veiculos">
+                        <td>{{v.id}}</td>
+                        <td>{{v.placa}}</td>
+                        <td>{{v.anoFabricacao}}</td>
+                        <td>{{v.anoModelo}}</td>
+                        <td>
+                            <a href="#" ng-click="excluir(v)">Excluir</a>
+                            <a href="#" ng-click="editar(v)">Editar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            
+        </div>
+    </body>
+</html>
