@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="App">
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="../angular.min.js"></script>
+        <script src="disciplina.js"></script>
+    </head>
+    <body ng-controller="DisciplinaController">
+
+        <div>
+            <br>
+            ID
+            <input type="text" ng-disabled="!isNovo" ng-model="disciplina.id">
+            <br>
+            Nome
+            <input type="text" ng-model="disciplina.nome">
+            <br>
+            Carga Horária
+            <input type="text" ng-model="disciplina.cargaHoraria">
+            <br>
+            Peso
+            <input type="text" ng-model="disciplina.peso">
+            <br>
+            <button ng-click="salvar()">Salvar</button>
+            <button ng-click="atualizar()">Atualizar</button>
+        </div>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Nome</th>
+                    <th>Carga Horária</th>
+                    <th>Peso</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="d in disciplinas">
+                    <td>{{d.id}}</td>
+                    <td>{{d.nome}}</td>
+                    <td>{{d.cargaHoraria}}</td>
+                    <td>{{d.peso}}</td>
+                    <td>
+                        <a href="#" ng-click="excluir(d)">Excluir</a>
+                        <a href="#" ng-click="editar(d)">Editar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>
